@@ -14,9 +14,9 @@ class Comment < ApplicationRecord
   validates(:commenter, { :presence => true })
 
   def commenter
-    my_id = self.id
+    my_author_id = self.author_id
     
-    matching_users = User.where({ :id => my_id })
+    matching_users = User.where({ :id => my_author_id })
 
     the_user = matching_users.at(0)
     
