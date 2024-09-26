@@ -32,7 +32,7 @@ class User < ApplicationRecord
 
     matching_venues = Venue.where({ :id => array_of_venue_ids })
 
-    unique_matching_venues = matching_venues.distinct
+    unique_matching_venues = matching_venues.distinct.order(:name)
 
     return unique_matching_venues
   end
